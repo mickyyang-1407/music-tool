@@ -19,506 +19,104 @@
     --error: #bf6d6d;
     --warning: #c8b97e;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
     background: var(--bg);
     color: var(--text);
     font-family: 'DM Mono', monospace;
     font-size: 13px;
     min-height: 100vh;
-    overflow-x: hidden;
   }
-
-  /* Ambient background */
   body::before {
     content: '';
     position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: 
-      radial-gradient(ellipse at 20% 20%, rgba(200, 169, 126, 0.04) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 80%, rgba(126, 158, 200, 0.04) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: 0;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(200,169,126,0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(126,158,200,0.04) 0%, transparent 50%);
+    pointer-events: none; z-index: 0;
   }
-
-  .layout {
-    position: relative;
-    z-index: 1;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 48px 24px;
-  }
-
-  /* Header */
-  header {
-    margin-bottom: 48px;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 32px;
-  }
-
-  .header-top {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-    margin-bottom: 8px;
-  }
-
-  h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 36px;
-    font-weight: 300;
-    letter-spacing: -0.5px;
-    color: var(--text);
-  }
-
-  .version-tag {
-    font-size: 10px;
-    color: var(--accent);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    border: 1px solid var(--accent);
-    padding: 2px 8px;
-    border-radius: 2px;
-  }
-
-  .subtitle {
-    color: var(--text-dim);
-    font-size: 12px;
-    letter-spacing: 0.5px;
-  }
-
-  /* Main grid */
-  .main-grid {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 24px;
-    align-items: start;
-  }
-
-  /* Panel */
-  .panel {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-  }
-
-  .panel-header {
-    padding: 16px 20px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .panel-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-  }
-
-  .panel-title {
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-dim);
-  }
-
-  .panel-body {
-    padding: 20px;
-  }
-
-  /* Form elements */
-  .field {
-    margin-bottom: 20px;
-  }
-
-  label {
-    display: block;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--text-dim);
-    margin-bottom: 8px;
-  }
-
-  input, textarea, select {
-    width: 100%;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    color: var(--text);
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    padding: 10px 12px;
-    transition: border-color 0.2s;
-    outline: none;
-  }
-
-  input:focus, textarea:focus, select:focus {
-    border-color: var(--accent);
-  }
-
+  .layout { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+  header { margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 28px; }
+  .header-top { display: flex; align-items: baseline; gap: 16px; margin-bottom: 6px; }
+  h1 { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 300; color: var(--text); }
+  .version-tag { font-size: 10px; color: var(--accent); letter-spacing: 2px; text-transform: uppercase; border: 1px solid var(--accent); padding: 2px 8px; border-radius: 2px; }
+  .subtitle { color: var(--text-dim); font-size: 12px; }
+  .main-grid { display: grid; grid-template-columns: 310px 1fr; gap: 20px; align-items: start; }
+  .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; }
+  .panel-header { padding: 14px 18px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+  .panel-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .panel-title { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); }
+  .panel-body { padding: 18px; }
+  .field { margin-bottom: 18px; }
+  label { display: block; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim); margin-bottom: 7px; }
+  input, textarea, select { width: 100%; background: var(--surface2); border: 1px solid var(--border); border-radius: 2px; color: var(--text); font-family: 'DM Mono', monospace; font-size: 12px; padding: 9px 11px; transition: border-color 0.2s; outline: none; }
+  input:focus, textarea:focus, select:focus { border-color: var(--accent); }
   input[type="password"] { letter-spacing: 2px; }
-
-  textarea { resize: vertical; min-height: 80px; line-height: 1.6; }
-
+  textarea { resize: vertical; min-height: 72px; line-height: 1.6; }
   select option { background: var(--surface2); }
-
-  /* Qty control */
-  .qty-control {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-
-  .qty-btn {
-    background: var(--surface2);
-    border: none;
-    color: var(--text-dim);
-    width: 36px;
-    height: 36px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: all 0.15s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
+  .qty-control { display: flex; align-items: center; border: 1px solid var(--border); border-radius: 2px; overflow: hidden; }
+  .qty-btn { background: var(--surface2); border: none; color: var(--text-dim); width: 36px; height: 36px; cursor: pointer; font-size: 18px; transition: all 0.15s; display: flex; align-items: center; justify-content: center; }
   .qty-btn:hover { background: var(--border); color: var(--text); }
-
-  .qty-display {
-    flex: 1;
-    text-align: center;
-    background: var(--surface2);
-    border-left: 1px solid var(--border);
-    border-right: 1px solid var(--border);
-    padding: 8px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    color: var(--accent);
-  }
-
-  /* Style tags */
-  .style-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 8px;
-  }
-
-  .style-tag {
-    padding: 4px 10px;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    cursor: pointer;
-    font-size: 11px;
-    color: var(--text-dim);
-    transition: all 0.15s;
-    background: transparent;
-  }
-
+  .qty-display { flex: 1; text-align: center; background: var(--surface2); border-left: 1px solid var(--border); border-right: 1px solid var(--border); font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--accent); padding: 6px; }
+  .style-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .style-tag { padding: 4px 10px; border: 1px solid var(--border); border-radius: 2px; cursor: pointer; font-size: 11px; color: var(--text-dim); transition: all 0.15s; background: transparent; font-family: 'DM Mono', monospace; }
   .style-tag:hover { border-color: var(--accent); color: var(--accent); }
   .style-tag.active { border-color: var(--accent); color: var(--accent); background: rgba(200,169,126,0.08); }
-
-  /* Generate button */
-  .btn-generate {
-    width: 100%;
-    padding: 14px;
-    background: var(--accent);
-    color: var(--bg);
-    border: none;
-    border-radius: 2px;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-top: 8px;
-  }
-
+  .btn-generate { width: 100%; padding: 13px; background: var(--accent); color: var(--bg); border: none; border-radius: 2px; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; margin-top: 6px; }
   .btn-generate:hover { background: #d4b890; transform: translateY(-1px); }
   .btn-generate:active { transform: translateY(0); }
-  .btn-generate:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
-
-  /* Right panel: queue */
-  .queue-panel { min-height: 400px; }
-
-  .queue-empty {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 300px;
-    color: var(--text-dim);
-    gap: 12px;
-  }
-
-  .queue-empty-icon {
-    font-size: 40px;
-    opacity: 0.3;
-  }
-
-  .queue-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-  }
-
-  /* Track card */
-  .track-card {
-    background: var(--surface2);
-    border-left: 2px solid var(--border);
-    padding: 16px 20px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 12px;
-    align-items: center;
-    transition: border-color 0.3s;
-    animation: slideIn 0.3s ease;
-  }
-
-  @keyframes slideIn {
-    from { opacity: 0; transform: translateX(-8px); }
-    to { opacity: 1; transform: translateX(0); }
-  }
-
+  .btn-generate:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
+  .queue-panel { min-height: 380px; }
+  .queue-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 280px; color: var(--text-dim); gap: 10px; }
+  .queue-empty-icon { font-size: 38px; opacity: 0.25; }
+  .queue-scroll { max-height: 500px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+  .queue-list { display: flex; flex-direction: column; gap: 1px; }
+  .track-card { background: var(--surface2); border-left: 2px solid var(--border); padding: 14px 18px; display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; transition: border-color 0.3s; animation: slideIn 0.25s ease; }
+  @keyframes slideIn { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: translateX(0); } }
   .track-card.status-pending { border-left-color: var(--border); }
   .track-card.status-generating { border-left-color: var(--accent); }
   .track-card.status-converting { border-left-color: var(--accent2); }
   .track-card.status-done { border-left-color: var(--success); }
   .track-card.status-error { border-left-color: var(--error); }
-
   .track-info { min-width: 0; }
-
-  .track-num {
-    font-size: 10px;
-    letter-spacing: 1px;
-    color: var(--text-dim);
-    margin-bottom: 4px;
-  }
-
-  .track-prompt {
-    font-size: 12px;
-    color: var(--text);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin-bottom: 4px;
-  }
-
-  .track-status {
-    font-size: 10px;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .status-dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: currentColor;
-    flex-shrink: 0;
-  }
-
+  .track-num { font-size: 10px; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 3px; }
+  .track-prompt { font-size: 11px; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 4px; }
+  .track-status { font-size: 10px; letter-spacing: 0.5px; display: flex; align-items: center; gap: 5px; }
+  .status-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
   .status-pending .track-status { color: var(--text-dim); }
   .status-generating .track-status { color: var(--accent); }
   .status-converting .track-status { color: var(--accent2); }
   .status-done .track-status { color: var(--success); }
   .status-error .track-status { color: var(--error); }
-
-  /* Pulse animation for active states */
-  .status-generating .status-dot,
-  .status-converting .status-dot {
-    animation: pulse 1.2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.4; transform: scale(0.7); }
-  }
-
-  .track-actions { display: flex; gap: 8px; flex-shrink: 0; }
-
-  .btn-action {
-    padding: 6px 12px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--text-dim);
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    border-radius: 2px;
-    transition: all 0.15s;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-  }
-
+  .status-generating .status-dot, .status-converting .status-dot { animation: pulse 1.2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.3; transform:scale(0.6); } }
+  .track-actions { display: flex; gap: 6px; flex-shrink: 0; }
+  .btn-action { padding: 5px 10px; border: 1px solid var(--border); background: transparent; color: var(--text-dim); font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; cursor: pointer; border-radius: 2px; transition: all 0.15s; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
   .btn-action:hover { border-color: var(--text); color: var(--text); }
-
-  .btn-action.primary {
-    border-color: var(--success);
-    color: var(--success);
-  }
-
-  .btn-action.primary:hover {
-    background: rgba(109, 191, 138, 0.1);
-  }
-
-  /* Progress bar */
-  .progress-bar-wrap {
-    height: 2px;
-    background: var(--border);
-    border-radius: 1px;
-    overflow: hidden;
-    margin-top: 8px;
-  }
-
-  .progress-bar-fill {
-    height: 100%;
-    background: var(--accent);
-    border-radius: 1px;
-    transition: width 0.5s ease;
-  }
-
-  /* Summary bar */
-  .summary-bar {
-    display: flex;
-    gap: 24px;
-    padding: 16px 20px;
-    border-top: 1px solid var(--border);
-    font-size: 11px;
-    color: var(--text-dim);
-  }
-
-  .summary-item { display: flex; gap: 6px; align-items: center; }
-  .summary-val { color: var(--text); font-size: 14px; font-family: 'Cormorant Garamond', serif; }
-
-  /* Alert */
-  .alert {
-    padding: 12px 16px;
-    border-radius: 2px;
-    font-size: 11px;
-    line-height: 1.6;
-    margin-bottom: 16px;
-  }
-
-  .alert-warning {
-    background: rgba(200, 185, 126, 0.08);
-    border: 1px solid rgba(200, 185, 126, 0.25);
-    color: var(--warning);
-  }
-
-  .alert-info {
-    background: rgba(126, 158, 200, 0.08);
-    border: 1px solid rgba(126, 158, 200, 0.25);
-    color: var(--accent2);
-  }
-
-  /* API provider selector */
-  .provider-tabs {
-    display: flex;
-    gap: 0;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    overflow: hidden;
-    margin-bottom: 8px;
-  }
-
-  .provider-tab {
-    flex: 1;
-    padding: 8px;
-    background: transparent;
-    border: none;
-    color: var(--text-dim);
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.15s;
-    border-right: 1px solid var(--border);
-  }
-
-  .provider-tab:last-child { border-right: none; }
-  .provider-tab.active { background: rgba(200,169,126,0.1); color: var(--accent); }
-  .provider-tab:hover:not(.active) { background: var(--surface2); }
-
-  /* Prompt preview */
-  .prompt-preview {
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    padding: 12px;
-    font-size: 11px;
-    color: var(--text-dim);
-    line-height: 1.7;
-    margin-top: 8px;
-    min-height: 60px;
-    font-style: italic;
-  }
-
+  .btn-action.dl { border-color: var(--success); color: var(--success); }
+  .btn-action.dl:hover { background: rgba(109,191,138,0.1); }
+  .progress-bar-wrap { height: 2px; background: var(--border); border-radius: 1px; overflow: hidden; margin-top: 6px; }
+  .progress-bar-fill { height: 100%; background: var(--accent); border-radius: 1px; transition: width 0.5s ease; }
+  .summary-bar { display: flex; gap: 20px; padding: 14px 18px; border-top: 1px solid var(--border); font-size: 11px; color: var(--text-dim); align-items: center; }
+  .summary-item { display: flex; gap: 5px; align-items: center; }
+  .summary-val { color: var(--text); font-size: 15px; font-family: 'Cormorant Garamond', serif; }
+  .alert { padding: 10px 14px; border-radius: 2px; font-size: 11px; line-height: 1.6; margin-bottom: 14px; }
+  .alert-warning { background: rgba(200,185,126,0.07); border: 1px solid rgba(200,185,126,0.22); color: var(--warning); }
+  .alert-info { background: rgba(126,158,200,0.07); border: 1px solid rgba(126,158,200,0.22); color: var(--accent2); }
+  .prompt-preview { background: var(--surface2); border: 1px solid var(--border); border-radius: 2px; padding: 10px 12px; font-size: 11px; color: var(--text-dim); line-height: 1.7; margin-top: 6px; min-height: 54px; font-style: italic; }
   .prompt-preview.active { color: var(--text); font-style: normal; }
-
-  /* Divider */
-  .divider {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 20px 0;
-  }
-
-  /* Scrollable queue */
-  .queue-scroll {
-    max-height: 520px;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--border) transparent;
-  }
-
-  .hint {
-    font-size: 10px;
-    color: var(--text-dim);
-    margin-top: 6px;
-    line-height: 1.5;
-  }
-
+  .hint { font-size: 10px; color: var(--text-dim); margin-top: 5px; line-height: 1.5; }
   .hint a { color: var(--accent2); text-decoration: none; }
   .hint a:hover { text-decoration: underline; }
+  hr.divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
 
-  /* Download all button */
-  .btn-download-all {
-    display: none;
-    width: 100%;
-    padding: 10px;
-    background: transparent;
-    border: 1px solid var(--success);
-    color: var(--success);
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    cursor: pointer;
-    border-radius: 2px;
-    transition: all 0.15s;
-    margin-top: 12px;
-  }
-
-  .btn-download-all:hover { background: rgba(109,191,138,0.1); }
-  .btn-download-all.visible { display: block; }
+  /* API Key reveal toggle */
+  .key-wrap { position: relative; }
+  .key-wrap input { padding-right: 40px; }
+  .eye-btn { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-dim); cursor: pointer; font-size: 14px; padding: 0; }
+  .eye-btn:hover { color: var(--text); }
 </style>
 </head>
 <body>
@@ -526,36 +124,31 @@
   <header>
     <div class="header-top">
       <h1>Suno 批量音樂生成器</h1>
-      <span class="version-tag">AI Agent</span>
+      <span class="version-tag">kie.ai</span>
     </div>
-    <div class="subtitle">Claude 自動生成 Prompt → Suno API → WAV 下載</div>
+    <div class="subtitle">Claude 自動生成 Prompt → Suno API → WAV 下載　｜　每人使用自己的 API Key</div>
   </header>
 
   <div class="main-grid">
-    <!-- Left: Config -->
+    <!-- 左欄：設定 -->
     <div>
-      <!-- API設定 -->
+      <!-- API 設定 -->
       <div class="panel" style="margin-bottom:16px">
         <div class="panel-header">
           <div class="panel-dot"></div>
-          <div class="panel-title">API 設定</div>
+          <div class="panel-title">API 設定（kie.ai）</div>
         </div>
         <div class="panel-body">
-          <div class="field">
-            <label>選擇服務商</label>
-            <div class="provider-tabs">
-              <button class="provider-tab active" onclick="setProvider('kie')" id="tab-kie">kie.ai</button>
-              <button class="provider-tab" onclick="setProvider('apibox')" id="tab-apibox">api.box</button>
-              <button class="provider-tab" onclick="setProvider('sunoapi')" id="tab-sunoapi">sunoapi.org</button>
-            </div>
-            <div class="hint" id="provider-hint">
-              前往 <a href="https://kie.ai" target="_blank">kie.ai</a> 註冊，取得 API Key。支援 Suno V4.5 / V5，可生成 WAV。
-            </div>
+          <div class="alert alert-info">
+            🔑 前往 <a href="https://kie.ai" target="_blank" style="color:var(--accent)">kie.ai</a> 免費註冊，取得 API Key。新用戶有免費試用額度。
           </div>
           <div class="field">
-            <label>API Key</label>
-            <input type="password" id="apiKey" placeholder="貼上你的 API Key" autocomplete="off">
-            <div class="hint">此 Key 僅在你的瀏覽器本地使用，不會傳送給任何第三方。</div>
+            <label>你的 kie.ai API Key</label>
+            <div class="key-wrap">
+              <input type="password" id="apiKey" placeholder="sk-xxxxxxxxxxxxxxxxxxxxxxxx" autocomplete="off">
+              <button class="eye-btn" onclick="toggleKey()" title="顯示/隱藏">👁</button>
+            </div>
+            <div class="hint">Key 僅在瀏覽器本地使用，不會上傳至任何伺服器。</div>
           </div>
         </div>
       </div>
@@ -564,7 +157,7 @@
       <div class="panel" style="margin-bottom:16px">
         <div class="panel-header">
           <div class="panel-dot" style="background:var(--accent2)"></div>
-          <div class="panel-title">音樂描述</div>
+          <div class="panel-title">音樂風格</div>
         </div>
         <div class="panel-body">
           <div class="field">
@@ -577,22 +170,20 @@
               <button class="style-tag" onclick="toggleTag(this,'piano')">鋼琴</button>
               <button class="style-tag" onclick="toggleTag(this,'jazz')">爵士</button>
               <button class="style-tag" onclick="toggleTag(this,'electronic')">電子</button>
-              <button class="style-tag" onclick="toggleTag(this,'acoustic')">木吉他</button>
+              <button class="style-tag" onclick="toggleTag(this,'acoustic guitar')">木吉他</button>
               <button class="style-tag" onclick="toggleTag(this,'meditation')">冥想</button>
               <button class="style-tag" onclick="toggleTag(this,'upbeat')">輕快活潑</button>
-              <button class="style-tag" onclick="toggleTag(this,'dark')">深沉黑暗</button>
+              <button class="style-tag" onclick="toggleTag(this,'dark atmospheric')">深沉黑暗</button>
               <button class="style-tag" onclick="toggleTag(this,'nature sounds')">自然聲音</button>
             </div>
           </div>
-
           <div class="field">
-            <label>額外描述（可選）</label>
-            <textarea id="extraDesc" placeholder="例如：適合工作專注的背景音樂，節奏穩定，沒有突然的音量變化..." rows="3"></textarea>
+            <label>額外說明（可選）</label>
+            <textarea id="extraDesc" placeholder="例如：適合工作專注的背景，節奏穩定，沒有突然的音量變化..." rows="2"></textarea>
           </div>
-
           <div class="field">
-            <label>Claude 生成的 Prompt 預覽</label>
-            <div class="prompt-preview" id="promptPreview">選擇風格標籤後，Claude 會自動生成專業的英文 Prompt...</div>
+            <label>Prompt 預覽（Claude 生成）</label>
+            <div class="prompt-preview" id="promptPreview">選擇風格標籤後自動生成...</div>
           </div>
         </div>
       </div>
@@ -611,31 +202,20 @@
               <div class="qty-display" id="qtyDisplay">5</div>
               <button class="qty-btn" onclick="adjustQty(1)">+</button>
             </div>
-            <div class="hint">每首使用約 5 credits。5 首 = 25 credits。</div>
+            <div class="hint" id="creditHint">每首使用約 5 credits，5 首 ≈ 25 credits</div>
           </div>
-
           <div class="field">
-            <label>音樂時長</label>
-            <select id="duration">
-              <option value="30">30 秒（短片段）</option>
-              <option value="60" selected>60 秒（標準）</option>
-              <option value="120">2 分鐘</option>
-              <option value="180">3 分鐘</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label>Suno 模型版本</label>
+            <label>Suno 模型</label>
             <select id="model">
-              <option value="V4.5">V4.5（穩定，速度快）</option>
-              <option value="V5" selected>V5（最新，音質最佳）</option>
+              <option value="V5">V5（最新，音質最佳）</option>
+              <option value="V4_5PLUS">V4.5+（豐富音效，最長 8 分鐘）</option>
+              <option value="V4_5">V4.5（速度快，最長 8 分鐘）</option>
+              <option value="V4" selected>V4（穩定版，最長 4 分鐘）</option>
             </select>
           </div>
-
           <div class="alert alert-warning">
-            ⚠ 每首生成約需 1–2 分鐘。批量生成會依序處理，請耐心等待。
+            ⚠ 每次生成會產生 2 首變奏，下方佇列會顯示所有版本可下載。
           </div>
-
           <button class="btn-generate" id="btnGenerate" onclick="startBatch()">
             ▶ 開始批量生成
           </button>
@@ -643,7 +223,7 @@
       </div>
     </div>
 
-    <!-- Right: Queue -->
+    <!-- 右欄：佇列 -->
     <div class="panel queue-panel">
       <div class="panel-header" style="justify-content:space-between">
         <div style="display:flex;align-items:center;gap:8px">
@@ -652,34 +232,21 @@
         </div>
         <div style="font-size:10px;color:var(--text-dim)" id="queueSummary">等待開始</div>
       </div>
-
       <div class="panel-body" style="padding:0">
         <div id="queueEmpty" class="queue-empty" style="padding:40px">
-          <div class="queue-empty-icon">♪</div>
-          <div style="letter-spacing:1px;font-size:11px">設定好參數後，點擊「開始批量生成」</div>
+          <div class="queue-empty-icon">♫</div>
+          <div style="font-size:11px;letter-spacing:1px">設定風格後，點擊「開始批量生成」</div>
         </div>
         <div class="queue-scroll">
           <div class="queue-list" id="queueList"></div>
         </div>
       </div>
-
       <div class="summary-bar" id="summaryBar" style="display:none">
-        <div class="summary-item">
-          <span class="summary-val" id="stat-done">0</span>
-          <span>完成</span>
-        </div>
-        <div class="summary-item">
-          <span class="summary-val" id="stat-processing">0</span>
-          <span>處理中</span>
-        </div>
-        <div class="summary-item">
-          <span class="summary-val" id="stat-error">0</span>
-          <span>失敗</span>
-        </div>
+        <div class="summary-item"><span class="summary-val" id="stat-done">0</span><span>完成</span></div>
+        <div class="summary-item"><span class="summary-val" id="stat-proc">0</span><span>處理中</span></div>
+        <div class="summary-item"><span class="summary-val" id="stat-err">0</span><span>失敗</span></div>
         <div style="margin-left:auto">
-          <button class="btn-action primary" onclick="downloadAll()" id="btnDownloadAll" style="display:none">
-            ↓ 全部下載
-          </button>
+          <button class="btn-action dl" id="btnDownloadAll" onclick="downloadAll()" style="display:none">↓ 全部下載</button>
         </div>
       </div>
     </div>
@@ -687,427 +254,370 @@
 </div>
 
 <script>
-// ─── State ───────────────────────────────────────────────────────
+// ─── 狀態 ──────────────────────────────────────────
 let qty = 5;
 let selectedTags = [];
-let provider = 'kie';
-let tracks = [];
+let jobs = [];       // { num, taskId, status, prompt, tracks:[], wavUrls:[] }
 let isRunning = false;
 
-// ─── Provider config ─────────────────────────────────────────────
-const providers = {
-  kie: {
-    hint: '前往 <a href="https://kie.ai" target="_blank">kie.ai</a> 註冊，取得 API Key。支援 Suno V4.5 / V5，可生成 WAV。',
-    baseUrl: 'https://api.kie.ai',
-    generateEndpoint: '/api/suno/v1/music',
-    statusEndpoint: (id) => `/api/suno/v1/music/${id}`,
-    wavEndpoint: (id) => `/api/suno/v1/music/${id}/wav`,
-  },
-  apibox: {
-    hint: '前往 <a href="https://api.box/suno" target="_blank">api.box/suno</a> 註冊，取得 API Key。支援 WAV 格式下載。',
-    baseUrl: 'https://api.box',
-    generateEndpoint: '/suno/v1/generate',
-    statusEndpoint: (id) => `/suno/v1/status/${id}`,
-    wavEndpoint: (id) => `/suno/v1/wav/${id}`,
-  },
-  sunoapi: {
-    hint: '前往 <a href="https://sunoapi.org" target="_blank">sunoapi.org</a> 申請 API Key。支援 V5 最新模型。',
-    baseUrl: 'https://api.sunoapi.org',
-    generateEndpoint: '/api/v1/music/generate',
-    statusEndpoint: (id) => `/api/v1/music/status/${id}`,
-    wavEndpoint: (id) => `/api/v1/music/wav/${id}`,
-  }
-};
-
-function setProvider(p) {
-  provider = p;
-  document.querySelectorAll('.provider-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('tab-' + p).classList.add('active');
-  document.getElementById('provider-hint').innerHTML = providers[p].hint;
-}
-
-// ─── Qty control ─────────────────────────────────────────────────
-function adjustQty(delta) {
-  qty = Math.max(1, Math.min(20, qty + delta));
+// ─── UI 小工具 ──────────────────────────────────────
+function adjustQty(d) {
+  qty = Math.max(1, Math.min(20, qty + d));
   document.getElementById('qtyDisplay').textContent = qty;
+  document.getElementById('creditHint').textContent =
+    `每首使用約 5 credits，${qty} 首 ≈ ${qty * 5} credits`;
 }
 
-// ─── Style tags ──────────────────────────────────────────────────
+function toggleKey() {
+  const inp = document.getElementById('apiKey');
+  inp.type = inp.type === 'password' ? 'text' : 'password';
+}
+
 function toggleTag(el, tag) {
   el.classList.toggle('active');
-  if (selectedTags.includes(tag)) {
-    selectedTags = selectedTags.filter(t => t !== tag);
-  } else {
-    selectedTags.push(tag);
-  }
-  if (selectedTags.length > 0) {
-    generatePromptPreview();
-  } else {
-    document.getElementById('promptPreview').textContent = '選擇風格標籤後，Claude 會自動生成專業的英文 Prompt...';
-    document.getElementById('promptPreview').classList.remove('active');
+  selectedTags = el.classList.contains('active')
+    ? [...selectedTags, tag]
+    : selectedTags.filter(t => t !== tag);
+  if (selectedTags.length > 0) schedulePreview();
+  else {
+    const p = document.getElementById('promptPreview');
+    p.textContent = '選擇風格標籤後自動生成...';
+    p.classList.remove('active');
   }
 }
 
-async function generatePromptPreview() {
-  const preview = document.getElementById('promptPreview');
-  preview.textContent = '正在生成 Prompt...';
-  preview.classList.remove('active');
-
-  try {
-    const extra = document.getElementById('extraDesc').value;
-    const prompt = await callClaude(`You are an expert at writing music generation prompts for Suno AI.
-Generate a concise, professional English instrumental music prompt (max 100 words) based on these style tags: ${selectedTags.join(', ')}.
-${extra ? `Additional context: ${extra}` : ''}
-Rules:
-- NO vocals, NO lyrics, purely instrumental
-- Describe mood, tempo, instruments, atmosphere
-- Be specific and evocative
-- Output ONLY the prompt text, nothing else`);
-    preview.textContent = prompt;
-    preview.classList.add('active');
-  } catch(e) {
-    preview.textContent = '無法連接 Claude API，將使用本地 Prompt 生成';
-    preview.classList.remove('active');
-  }
+let previewTimer;
+function schedulePreview() {
+  clearTimeout(previewTimer);
+  previewTimer = setTimeout(generatePromptPreview, 600);
 }
 
-async function callClaude(userPrompt) {
+// ─── Claude Prompt 生成 ─────────────────────────────
+async function callClaude(userMsg) {
   const res = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       model: 'claude-sonnet-4-20250514',
       max_tokens: 1000,
-      messages: [{ role: 'user', content: userPrompt }]
+      messages: [{ role: 'user', content: userMsg }]
     })
   });
+  if (!res.ok) throw new Error('Claude API error');
   const data = await res.json();
   return data.content[0].text.trim();
 }
 
-// ─── Fallback prompt generator (no Claude needed) ────────────────
-function generateFallbackPrompt(index) {
-  const tags = selectedTags.length > 0 ? selectedTags : ['ambient', 'cinematic'];
-  const moods = ['peaceful', 'contemplative', 'serene', 'ethereal', 'dynamic', 'gentle', 'expansive'];
-  const mood = moods[index % moods.length];
-  return `Instrumental ${tags.join(', ')} music. ${mood} atmosphere. No vocals, no lyrics. Smooth progression with rich texture. Professional studio quality.`;
+async function generatePromptPreview() {
+  const p = document.getElementById('promptPreview');
+  p.textContent = '生成中...'; p.classList.remove('active');
+  try {
+    const extra = document.getElementById('extraDesc').value;
+    const text = await callClaude(buildPromptRequest(selectedTags, extra, 0, 1));
+    p.textContent = text; p.classList.add('active');
+  } catch(e) {
+    p.textContent = '（預覽失敗，生成時會使用本地模板）';
+  }
 }
 
-// ─── Batch generation ────────────────────────────────────────────
+function buildPromptRequest(tags, extra, index, total) {
+  return `You are an expert Suno AI music prompt writer.
+Write a unique instrumental music prompt (variation ${index+1} of ${total}).
+Style: ${tags.join(', ')}.${extra ? `\nContext: ${extra}` : ''}
+Rules: purely instrumental, no vocals, no lyrics. Vary the mood/instruments slightly from other variations.
+Output ONLY the prompt text in English, max 80 words, no preamble.`;
+}
+
+function fallbackPrompt(index) {
+  const tags = selectedTags.length ? selectedTags : ['ambient', 'cinematic'];
+  const moods = ['peaceful','contemplative','serene','ethereal','flowing','gentle','expansive','dynamic'];
+  return `Instrumental ${tags.join(', ')} music. ${moods[index % moods.length]} atmosphere. No vocals. Smooth progression with rich texture.`;
+}
+
+// ─── kie.ai API 呼叫（正確 endpoint） ──────────────
+const KIE_BASE = 'https://api.kie.ai';
+
+async function kieGenerate(apiKey, prompt, model) {
+  const tags = selectedTags.join(', ');
+  const res = await fetch(`${KIE_BASE}/api/v1/generate`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      prompt: prompt,
+      customMode: true,
+      instrumental: true,
+      model: model,
+      style: tags.substring(0, 120),   // style 欄位有字數限制
+      title: `Track ${Date.now()}`,
+      negativeTags: 'vocals, singing, lyrics, voice'
+    })
+  });
+  if (res.status === 401) throw new Error('API Key 無效，請確認後重試');
+  if (res.status === 402) throw new Error('Credits 不足，請至 kie.ai 儲值');
+  if (!res.ok) {
+    const body = await res.text().catch(() => '');
+    throw new Error(`API 錯誤 ${res.status}${body ? ': ' + body.substring(0,100) : ''}`);
+  }
+  const data = await res.json();
+  const taskId = data?.data?.taskId || data?.taskId;
+  if (!taskId) throw new Error('未收到 taskId，請確認 API Key 正確');
+  return taskId;
+}
+
+async function kieGetDetails(apiKey, taskId) {
+  const res = await fetch(`${KIE_BASE}/api/v1/music/${taskId}`, {
+    headers: { 'Authorization': `Bearer ${apiKey}` }
+  });
+  if (!res.ok) throw new Error(`狀態查詢失敗 ${res.status}`);
+  return await res.json();
+}
+
+async function kieConvertWav(apiKey, taskId, audioId) {
+  const res = await fetch(`${KIE_BASE}/api/v1/wav/generate`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ taskId, audioId })
+  });
+  if (!res.ok) return null;
+  const data = await res.json();
+  return data?.data?.taskId || null;
+}
+
+async function kieGetWavDetails(apiKey, wavTaskId) {
+  const res = await fetch(`${KIE_BASE}/api/v1/wav/${wavTaskId}`, {
+    headers: { 'Authorization': `Bearer ${apiKey}` }
+  });
+  if (!res.ok) return null;
+  return await res.json();
+}
+
+// ─── 主流程 ──────────────────────────────────────────
 async function startBatch() {
   const apiKey = document.getElementById('apiKey').value.trim();
-  if (!apiKey) {
-    alert('請先填入 API Key！');
-    return;
+  if (!apiKey) { alert('請先填入 API Key'); return; }
+  if (!apiKey.startsWith('sk-') && !apiKey.length > 20) {
+    if (!confirm('API Key 格式看起來不太對，還是要繼續嗎？')) return;
   }
-  if (selectedTags.length === 0) {
-    alert('請至少選擇一個風格標籤！');
-    return;
-  }
+  if (selectedTags.length === 0) { alert('請至少選一個風格標籤'); return; }
 
   isRunning = true;
-  tracks = [];
+  jobs = [];
   document.getElementById('queueEmpty').style.display = 'none';
   document.getElementById('queueList').innerHTML = '';
   document.getElementById('summaryBar').style.display = 'flex';
-  document.getElementById('btnGenerate').disabled = true;
   document.getElementById('btnDownloadAll').style.display = 'none';
+  document.getElementById('btnGenerate').disabled = true;
 
-  // Create track placeholders
   for (let i = 0; i < qty; i++) {
-    const track = { id: null, num: i + 1, status: 'pending', prompt: '', wavUrl: null, audioUrl: null };
-    tracks.push(track);
-    renderTrack(track);
+    const job = { num: i+1, taskId: null, status: 'pending', prompt: '', tracks: [], wavUrls: [] };
+    jobs.push(job);
+    renderJob(job);
   }
-
   updateStats();
 
-  // Process sequentially
+  const model = document.getElementById('model').value;
+  const extra = document.getElementById('extraDesc').value;
+
   for (let i = 0; i < qty; i++) {
-    await processTrack(i, apiKey);
+    await processJob(i, apiKey, model, extra);
     updateStats();
   }
 
   isRunning = false;
   document.getElementById('btnGenerate').disabled = false;
-  const done = tracks.filter(t => t.status === 'done').length;
-  if (done > 0) {
+  if (jobs.some(j => j.tracks.length > 0)) {
     document.getElementById('btnDownloadAll').style.display = 'inline-flex';
   }
 }
 
-async function processTrack(index, apiKey) {
-  const track = tracks[index];
+async function processJob(i, apiKey, model, extra) {
+  const job = jobs[i];
 
-  // Step 1: Generate prompt with Claude
-  track.status = 'generating';
-  track.statusText = '正在生成 Prompt...';
-  updateTrackUI(track);
-
-  let prompt;
+  // 1. Claude 生成 Prompt
+  job.status = 'generating'; job.statusText = '生成 Prompt...';
+  updateJobUI(job);
   try {
-    const extra = document.getElementById('extraDesc').value;
-    const model = document.getElementById('model').value;
-    prompt = await callClaude(`Generate a unique instrumental music prompt #${index + 1} of ${qty} for Suno AI.
-Style: ${selectedTags.join(', ')}.
-${extra ? `Context: ${extra}` : ''}
-Make this prompt slightly different from a typical one — vary the emphasis, mood nuance, or specific instruments.
-Output ONLY the prompt text (max 80 words), no vocals, purely instrumental, no explanation.`);
+    job.prompt = await callClaude(buildPromptRequest(selectedTags, extra, i, qty));
   } catch(e) {
-    prompt = generateFallbackPrompt(index);
+    job.prompt = fallbackPrompt(i);
   }
 
-  track.prompt = prompt;
-  track.statusText = '呼叫 Suno API...';
-  updateTrackUI(track);
-
-  // Step 2: Call Suno API
+  // 2. 呼叫 kie.ai 生成
+  job.statusText = '呼叫 Suno API...';
+  updateJobUI(job);
   try {
-    const prov = providers[provider];
-    const duration = parseInt(document.getElementById('duration').value);
-    const model = document.getElementById('model').value;
-
-    // Generate music
-    const genRes = await fetch(prov.baseUrl + prov.generateEndpoint, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        prompt: prompt,
-        custom_mode: true,
-        instrumental: true,
-        make_instrumental: true,
-        model: model,
-        duration: duration,
-        title: `Track ${index + 1}`,
-      })
-    });
-
-    if (!genRes.ok) {
-      throw new Error(`API 錯誤: ${genRes.status}`);
-    }
-
-    const genData = await genRes.json();
-    const taskId = genData.data?.taskId || genData.taskId || genData.id;
-
-    if (!taskId) throw new Error('未收到 Task ID');
-
-    track.id = taskId;
-    track.statusText = '生成中，請稍候...';
-    updateTrackUI(track);
-
-    // Poll for completion
-    await pollStatus(track, apiKey, taskId);
-
+    job.taskId = await kieGenerate(apiKey, job.prompt, model);
   } catch(e) {
-    track.status = 'error';
-    track.statusText = e.message || '發生錯誤';
-    updateTrackUI(track);
+    job.status = 'error'; job.statusText = e.message;
+    updateJobUI(job); return;
   }
-}
 
-async function pollStatus(track, apiKey, taskId) {
-  const prov = providers[provider];
-  const maxAttempts = 60;
+  // 3. 輪詢等待完成
+  job.statusText = '音樂生成中...';
+  job.progress = 10;
+  updateJobUI(job);
 
-  for (let attempt = 0; attempt < maxAttempts; attempt++) {
-    await sleep(3000);
-
+  let finished = false;
+  for (let attempt = 0; attempt < 80; attempt++) {
+    await sleep(4000);
     try {
-      const statusRes = await fetch(prov.baseUrl + prov.statusEndpoint(taskId), {
-        headers: { 'Authorization': `Bearer ${apiKey}` }
-      });
+      const detail = await kieGetDetails(apiKey, job.taskId);
+      // kie.ai 回傳格式：data.data.status 或 data.status
+      const status = detail?.data?.status || detail?.status;
+      const sunoData = detail?.data?.response?.sunoData || detail?.data?.sunoData || [];
 
-      const statusData = await statusRes.json();
-      const status = statusData.data?.status || statusData.status;
-
-      if (status === 'SUCCESS' || status === 'success' || status === 'completed') {
-        // Get audio URL
-        const sunoData = statusData.data?.response?.sunoData?.[0] || statusData.data?.[0] || statusData;
-        track.audioUrl = sunoData?.audioUrl || sunoData?.audio_url;
-
-        // Request WAV conversion
-        track.status = 'converting';
-        track.statusText = '轉換 WAV 格式...';
-        updateTrackUI(track);
-
-        await requestWav(track, apiKey, taskId);
-        return;
-
-      } else if (status === 'FAILED' || status === 'failed' || status === 'error') {
+      if (status === 'SUCCESS' || status === 'success') {
+        job.tracks = sunoData;
+        finished = true;
+        break;
+      } else if (status === 'FAILED' || status === 'failed') {
         throw new Error('Suno 生成失敗');
       }
-
-      // Still processing
-      const elapsed = (attempt + 1) * 3;
-      track.statusText = `生成中... (${elapsed}s)`;
-      track.progress = Math.min(80, attempt * 3);
-      updateTrackUI(track);
-
+      job.progress = Math.min(75, 10 + attempt * 1.5);
+      job.statusText = `音樂生成中... (${Math.round((attempt+1)*4)}s)`;
+      updateJobUI(job);
     } catch(e) {
-      if (e.message.includes('生成失敗')) throw e;
-      // Network error, continue polling
+      if (e.message.includes('失敗')) { job.status='error'; job.statusText=e.message; updateJobUI(job); return; }
     }
   }
 
-  throw new Error('生成逾時，請稍後再試');
-}
+  if (!finished) { job.status='error'; job.statusText='等待逾時，請稍後重試'; updateJobUI(job); return; }
 
-async function requestWav(track, apiKey, taskId) {
-  const prov = providers[provider];
+  // 4. 轉換 WAV（每個 track）
+  job.status = 'converting'; job.statusText = '轉換 WAV 格式...'; job.progress = 80;
+  updateJobUI(job);
 
-  try {
-    // Request WAV conversion
-    const wavRes = await fetch(prov.baseUrl + prov.wavEndpoint(taskId), {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ taskId })
-    });
-
-    if (wavRes.ok) {
-      const wavData = await wavRes.json();
-      const wavTaskId = wavData.data?.taskId || wavData.taskId;
-
-      // Poll WAV status
-      for (let i = 0; i < 30; i++) {
-        await sleep(3000);
-        const checkRes = await fetch(prov.baseUrl + prov.statusEndpoint(wavTaskId), {
-          headers: { 'Authorization': `Bearer ${apiKey}` }
-        });
-        const checkData = await checkRes.json();
-        const wavStatus = checkData.data?.status || checkData.status;
-
-        if (wavStatus === 'SUCCESS' || wavStatus === 'success') {
-          const wavUrl = checkData.data?.response?.wavUrl || checkData.data?.wavUrl;
-          if (wavUrl) {
-            track.wavUrl = wavUrl;
-            track.status = 'done';
-            track.statusText = 'WAV 已就緒';
-            updateTrackUI(track);
-            return;
+  for (const track of job.tracks) {
+    try {
+      const wavTaskId = await kieConvertWav(apiKey, job.taskId, track.id);
+      if (wavTaskId) {
+        for (let w = 0; w < 30; w++) {
+          await sleep(3000);
+          const wavDetail = await kieGetWavDetails(apiKey, wavTaskId);
+          const wavStatus = wavDetail?.data?.status || wavDetail?.status;
+          if (wavStatus === 'SUCCESS' || wavStatus === 'success') {
+            const wavUrl = wavDetail?.data?.response?.wavUrl || wavDetail?.data?.wavUrl;
+            if (wavUrl) { track.wavUrl = wavUrl; break; }
           }
         }
       }
+      // fallback: 用 MP3
+      if (!track.wavUrl) track.wavUrl = track.audioUrl;
+    } catch(e) {
+      track.wavUrl = track.audioUrl; // fallback
     }
-
-    // Fallback: use MP3 if WAV fails
-    track.status = 'done';
-    track.wavUrl = track.audioUrl;
-    track.statusText = '完成（MP3 格式）';
-    updateTrackUI(track);
-
-  } catch(e) {
-    // Fallback to MP3
-    track.status = 'done';
-    track.wavUrl = track.audioUrl;
-    track.statusText = '完成（MP3 格式）';
-    updateTrackUI(track);
   }
+
+  job.status = 'done';
+  job.statusText = `完成 ${job.tracks.length} 個版本`;
+  job.progress = 100;
+  updateJobUI(job);
 }
 
-// ─── UI rendering ─────────────────────────────────────────────────
-function renderTrack(track) {
-  const list = document.getElementById('queueList');
+// ─── UI 渲染 ─────────────────────────────────────────
+function renderJob(job) {
   const div = document.createElement('div');
-  div.className = `track-card status-pending`;
-  div.id = `track-${track.num}`;
-  div.innerHTML = trackHTML(track);
-  list.appendChild(div);
+  div.id = `job-${job.num}`;
+  div.className = 'track-card status-pending';
+  div.innerHTML = jobHTML(job);
+  document.getElementById('queueList').appendChild(div);
 }
 
-function updateTrackUI(track) {
-  const el = document.getElementById(`track-${track.num}`);
+function updateJobUI(job) {
+  const el = document.getElementById(`job-${job.num}`);
   if (!el) return;
-  el.className = `track-card status-${track.status}`;
-  el.innerHTML = trackHTML(track);
+  el.className = `track-card status-${job.status}`;
+  el.innerHTML = jobHTML(job);
 }
 
-function trackHTML(track) {
-  const statusLabels = {
+function jobHTML(job) {
+  const label = {
     pending: '等待中',
-    generating: track.statusText || '生成中...',
-    converting: track.statusText || '轉換 WAV...',
-    done: track.statusText || '完成',
-    error: track.statusText || '失敗'
-  };
+    generating: job.statusText || '準備中...',
+    converting: job.statusText || '轉換 WAV...',
+    done: job.statusText || '完成',
+    error: job.statusText || '失敗'
+  }[job.status] || '—';
 
-  const actions = track.status === 'done' && track.wavUrl
-    ? `<a class="btn-action primary" href="${track.wavUrl}" download="track_${track.num}.wav" target="_blank">↓ 下載</a>`
-    : track.status === 'error'
-    ? `<button class="btn-action" onclick="retryTrack(${track.num - 1})">↺ 重試</button>`
-    : '';
+  const promptText = job.prompt
+    ? job.prompt.substring(0, 65) + (job.prompt.length > 65 ? '...' : '')
+    : '等待 Prompt...';
 
-  const promptText = track.prompt
-    ? `<div class="track-prompt" title="${track.prompt}">${track.prompt.substring(0, 60)}${track.prompt.length > 60 ? '...' : ''}</div>`
-    : `<div class="track-prompt" style="color:var(--text-dim)">等待生成 Prompt...</div>`;
+  // 下載按鈕（每個 track 一個）
+  let actions = '';
+  if (job.status === 'done' && job.tracks.length > 0) {
+    job.tracks.forEach((t, idx) => {
+      const url = t.wavUrl || t.audioUrl;
+      const ext = t.wavUrl ? 'wav' : 'mp3';
+      if (url) {
+        actions += `<a class="btn-action dl" href="${url}" download="track${job.num}_v${idx+1}.${ext}" target="_blank">↓ V${idx+1} ${ext.toUpperCase()}</a>`;
+      }
+    });
+  } else if (job.status === 'error') {
+    actions = `<button class="btn-action" onclick="retryJob(${job.num-1})">↺ 重試</button>`;
+  }
 
-  const progressBar = (track.status === 'generating' || track.status === 'converting')
-    ? `<div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${track.progress || 20}%"></div></div>`
-    : '';
+  const bar = (job.status === 'generating' || job.status === 'converting')
+    ? `<div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${job.progress||15}%"></div></div>` : '';
 
   return `
     <div class="track-info">
-      <div class="track-num">TRACK ${String(track.num).padStart(2,'0')}</div>
-      ${promptText}
-      <div class="track-status">
-        <div class="status-dot"></div>
-        ${statusLabels[track.status]}
-      </div>
-      ${progressBar}
+      <div class="track-num">TRACK ${String(job.num).padStart(2,'0')}</div>
+      <div class="track-prompt" title="${job.prompt}">${promptText}</div>
+      <div class="track-status"><div class="status-dot"></div>${label}</div>
+      ${bar}
     </div>
-    <div class="track-actions">${actions}</div>
-  `;
+    <div class="track-actions">${actions}</div>`;
 }
 
-function updateStats() {
-  const done = tracks.filter(t => t.status === 'done').length;
-  const proc = tracks.filter(t => t.status === 'generating' || t.status === 'converting').length;
-  const err = tracks.filter(t => t.status === 'error').length;
-
-  document.getElementById('stat-done').textContent = done;
-  document.getElementById('stat-processing').textContent = proc;
-  document.getElementById('stat-error').textContent = err;
-  document.getElementById('queueSummary').textContent = `${done}/${tracks.length} 完成`;
-}
-
-async function retryTrack(index) {
+async function retryJob(i) {
   const apiKey = document.getElementById('apiKey').value.trim();
   if (!apiKey) { alert('請填入 API Key'); return; }
-  tracks[index].status = 'pending';
-  tracks[index].statusText = '';
-  updateTrackUI(tracks[index]);
-  await processTrack(index, apiKey);
+  const model = document.getElementById('model').value;
+  const extra = document.getElementById('extraDesc').value;
+  jobs[i].status = 'pending'; jobs[i].statusText = ''; jobs[i].tracks = []; jobs[i].wavUrls = [];
+  updateJobUI(jobs[i]);
+  await processJob(i, apiKey, model, extra);
   updateStats();
 }
 
+function updateStats() {
+  const done = jobs.filter(j => j.status === 'done').length;
+  const proc = jobs.filter(j => j.status === 'generating' || j.status === 'converting').length;
+  const err  = jobs.filter(j => j.status === 'error').length;
+  document.getElementById('stat-done').textContent = done;
+  document.getElementById('stat-proc').textContent = proc;
+  document.getElementById('stat-err').textContent  = err;
+  document.getElementById('queueSummary').textContent = `${done}/${jobs.length} 完成`;
+}
+
 function downloadAll() {
-  const completed = tracks.filter(t => t.status === 'done' && t.wavUrl);
-  if (completed.length === 0) return;
-  completed.forEach((track, i) => {
-    setTimeout(() => {
-      const a = document.createElement('a');
-      a.href = track.wavUrl;
-      a.download = `track_${track.num}.wav`;
-      a.target = '_blank';
-      a.click();
-    }, i * 800);
+  jobs.forEach((job, ji) => {
+    job.tracks.forEach((t, ti) => {
+      const url = t.wavUrl || t.audioUrl;
+      if (!url) return;
+      const ext = t.wavUrl ? 'wav' : 'mp3';
+      setTimeout(() => {
+        const a = document.createElement('a');
+        a.href = url; a.download = `track${job.num}_v${ti+1}.${ext}`; a.target = '_blank';
+        a.click();
+      }, (ji * job.tracks.length + ti) * 900);
+    });
   });
 }
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
-// ─── Live prompt preview on extra desc change ─────────────────────
+// extra desc change
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('extraDesc').addEventListener('input', () => {
-    if (selectedTags.length > 0) {
-      clearTimeout(window._previewTimer);
-      window._previewTimer = setTimeout(generatePromptPreview, 800);
-    }
+    if (selectedTags.length > 0) schedulePreview();
   });
 });
 </script>
